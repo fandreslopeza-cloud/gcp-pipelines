@@ -1,0 +1,1 @@
+python wordcount.py --runner DataflowRunner --project flopeza-demo-composer --region us-central1 --staging_location gs://flopeza-composer-demo/staging/ --template_location gs://flopeza-composer-demo/templates/wordcount_template
