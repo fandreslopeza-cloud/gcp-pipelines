@@ -17,6 +17,32 @@ Pipeline batch construido con Apache Beam que lee *King Lear* de Shakespeare des
 
 **Stack:** Apache Beam · Cloud Dataflow · Cloud Storage · Python
 
+<details>
+<summary>Ver output de ejemplo</summary>
+
+Muestra de las palabras más frecuentes en *King Lear* (output real del pipeline, archivo completo en [`Dataflow/OutputClean.txt`](Dataflow/OutputClean.txt)):
+
+```
+('and', 738)
+('to', 582)
+('that', 363)
+('king', 311)
+('not', 282)
+('his', 210)
+('him', 198)
+('gloucester', 179)
+('for', 156)
+('no', 154)
+('will', 130)
+('are', 128)
+('fool', 120)
+('sir', 115)
+('our', 115)
+('all', 109)
+```
+
+</details>
+
 ---
 
 ### 2. Orquestación de Template Dataflow — Cloud Composer
@@ -44,6 +70,43 @@ Script Python parametrizable que consulta el dataset `bigquery-public-data.thelo
 
 **Stack:** BigQuery · Python · Pandas
 
+<details>
+<summary>Ver output de ejemplo</summary>
+
+**Top 20 por revenue** (`--order revenue`):
+
+```
+       id                                               name  quantity  revenue
+0   24201         Mens Nike AirJordan Varsity Hoodie Jacket         4  3612.00
+1   20171         Robert Graham Men's Minstrel Dinner Jacket         5  2990.00
+2    8429             The North Face Women's S-XL Oso Jacket         3  2709.00
+3   17094       The North Face Apex Bionic Soft Shell Jacket         3  2709.00
+4    3810                 Parker Women's V-Neck Beaded Dress         7  2618.00
+5   23803              Canada Goose Men's The Chateau Jacket         3  2445.00
+6   23811                     Arc'teryx Men's Beta AR Jacket         5  2375.00
+7   24179                    Arc'teryx Men's Diplomat Jacket         5  2250.00
+8    8777        Bergama Natural Raccoon Hooded Stroller Muu         3  2249.97
+9   24195       Marc New York Andrew Marc Men's Nucky Jacket         5  2145.00
+```
+
+**Top 20 por cantidad vendida** (`--order quantity`):
+
+```
+       id                                               name  quantity  revenue
+0    5251                  Everyday Favorite Pants / Regular         8   632.00
+1    2166   Tri-Mountain Womens 100% polyester mesh fleece          8   553.60
+2   27368      Tommy Hilfiger Solid Black & Red Pajama Pants         8   320.00
+3   25523          Calvin Klein Men's Prostretch Boxer Brief         8   192.00
+4   24473                      Original Penguin Men's Stripe         8   120.00
+5    3810                 Parker Women's V-Neck Beaded Dress         7  2618.00
+6   11718         Airblaster Expedition Weight Ninja Suit W's         7  1119.65
+7   19964       Kenneth Cole Reaction Mens Grey Stripe Suit         7   699.93
+8   10333                       Hanro Women's Taitu Babydoll         7   686.00
+9   15660          Under Armour Igniter Pro Sport Sunglasses         7   664.93
+```
+
+</details>
+
 ---
 
 ### 4. Modelo de Datos Desnormalizado — BigQuery Dataset Propio
@@ -56,6 +119,18 @@ Ejemplo end-to-end de creación de un dataset en BigQuery y consulta sobre una v
 - `query_script.py`: consulta de agregación — total de pedidos y gasto por cliente, ordenado por revenue
 
 **Stack:** BigQuery · SQL · Python
+
+<details>
+<summary>Ver output de ejemplo</summary>
+
+```
+            name  total_pedidos  total_gastado
+0  Javier Valdes              2    1226.25
+1  Agustin Tapia              1     300.00
+2  Arturo Coello              2      55.00
+```
+
+</details>
 
 ---
 
