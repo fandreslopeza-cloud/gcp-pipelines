@@ -5,14 +5,14 @@ def create_bucket(bucket_name, location="US"):
     client = storage.Client()
     bucket = client.bucket(bucket_name)
     client.create_bucket(bucket, location=location)
-    print(f"✅ Bucket creado: {bucket.name}")
+    print(f"Bucket creado: {bucket.name}")
 
 def create_bigquery_dataset(dataset_id, location="US"):
     client = bigquery.Client()
     dataset = bigquery.Dataset(f"{client.project}.{dataset_id}")
     dataset.location = location
     client.create_dataset(dataset, exists_ok=True)
-    print(f"✅ Dataset creado: {dataset.dataset_id}")
+    print(f"Dataset creado: {dataset.dataset_id}")
 
 def create_spanner_instance(instance_id, config="regional-us-central1", display_name=None):
     client = spanner.Client()
@@ -23,7 +23,7 @@ def create_spanner_instance(instance_id, config="regional-us-central1", display_
     )
     operation = instance.create()
     operation.result()
-    print(f"✅ Instancia Spanner creada: {instance_id}")
+    print(f"Instancia Spanner creada: {instance_id}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Crear recursos en Google Cloud.")

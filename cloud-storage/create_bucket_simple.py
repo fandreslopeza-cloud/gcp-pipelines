@@ -15,8 +15,5 @@ def main():
     new_bucket = storage_client.create_bucket(bucket,location="us-central1")
     print(f"Bucket {new_bucket.name} created in {new_bucket.location} with class {new_bucket.storage_class}")
 
-
-
-
 if __name__ == "__main__":
     main()
